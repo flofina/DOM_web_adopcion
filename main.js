@@ -1,7 +1,7 @@
 const arrayGatos = [
   {
     name: "Renata",
-    img: "images/cards1-img.png",
+    img: "images/cards1-img.PNG",
     shortDesc: "Tiene 1 año, le gusta perseguir mariposas, se lleva bien con ninios, gatos y perros.",
     longDesc: "Temporibus quam id inventore laboriosam repudiandae modi blanditiis porro sint ullam, distinctio commodi, accusantium aut! Voluptatem totam, dolor doloribus id distinctio obcaecati inventore velit temporibus architecto quis.",
     color: ["gris"],
