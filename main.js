@@ -1,7 +1,7 @@
 const arrayGatos = [
   {
     name: "Renata",
-    img: "images/cards1-img.PNG",
+    img: "images/cards1-img.png",
     shortDesc: "Tiene 1 año, le gusta perseguir mariposas, se lleva bien con ninios, gatos y perros.",
     longDesc: "Temporibus quam id inventore laboriosam repudiandae modi blanditiis porro sint ullam, distinctio commodi, accusantium aut! Voluptatem totam, dolor doloribus id distinctio obcaecati inventore velit temporibus architecto quis.",
     color: ["gris"],
@@ -9,7 +9,7 @@ const arrayGatos = [
   },
   {
     name: "Beto",
-    img: "images/cards2-img.PNG",
+    img: "images/cards2-img.png",
     shortDesc: "Tiene 2 años, le gusta perseguir mariposas, se lleva bien con ninios, gatos y perros.",
     longDesc: "Temporibus quam id inventore laboriosam repudiandae modi blanditiis porro sint ullam, distinctio commodi, accusantium aut! Voluptatem totam, dolor doloribus id distinctio obcaecati inventore velit temporibus architecto quis.",
     color: ["naranja"],
@@ -17,7 +17,7 @@ const arrayGatos = [
   },
   {
     name: "Mecha",
-    img: "images/cards3-img.PNG",
+    img: "images/cards3-img.png",
     shortDesc: "Tiene 1 año, le gusta perseguir mariposas, se lleva bien con ninios, gatos y perros.",
     longDesc: "Temporibus quam id inventore laboriosam repudiandae modi blanditiis porro sint ullam, distinctio commodi, accusantium aut! Voluptatem totam, dolor doloribus id distinctio obcaecati inventore velit temporibus architecto quis.",
     color: ["blanco", "negro"],
@@ -25,7 +25,7 @@ const arrayGatos = [
   },
   {
     name: "Silvestre",
-    img: "images/cards4-img.PNG",
+    img: "images/cards4-img.png",
     shortDesc: "Tiene 2 años, le gusta perseguir mariposas, se lleva bien con ninios, gatos y perros.",
     longDesc: "Temporibus quam id inventore laboriosam repudiandae modi blanditiis porro sint ullam, distinctio commodi, accusantium aut! Voluptatem totam, dolor doloribus id distinctio obcaecati inventore velit temporibus architecto quis.",
     color: ["atigrado"],
@@ -33,7 +33,7 @@ const arrayGatos = [
   },
   {
     name: "Blackie",
-    img: "images/cards5-img.PNG",
+    img: "images/cards5-img.png",
     shortDesc: "Tiene 2 años, le gusta perseguir mariposas, se lleva bien con ninios, gatos y perros.",
     longDesc: "Temporibus quam id inventore laboriosam repudiandae modi blanditiis porro sint ullam, distinctio commodi, accusantium aut! Voluptatem totam, dolor doloribus id distinctio obcaecati inventore velit temporibus architecto quis.",
     color: ["negro"],
