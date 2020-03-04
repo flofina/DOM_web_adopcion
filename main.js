@@ -5,7 +5,7 @@ const arrayGatos = [
     shortDesc: "Tiene 1 año, le gusta perseguir mariposas, se lleva bien con ninios, gatos y perros.",
     longDesc: "Temporibus quam id inventore laboriosam repudiandae modi blanditiis porro sint ullam, distinctio commodi, accusantium aut! Voluptatem totam, dolor doloribus id distinctio obcaecati inventore velit temporibus architecto quis.",
     color: ["gris"],
-    sexo: "F"
+    sexo: "f"
   },
   {
     name: "Beto",
@@ -13,7 +13,7 @@ const arrayGatos = [
     shortDesc: "Tiene 2 años, le gusta perseguir mariposas, se lleva bien con ninios, gatos y perros.",
     longDesc: "Temporibus quam id inventore laboriosam repudiandae modi blanditiis porro sint ullam, distinctio commodi, accusantium aut! Voluptatem totam, dolor doloribus id distinctio obcaecati inventore velit temporibus architecto quis.",
     color: ["naranja"],
-    sexo: "M"
+    sexo: "m"
   },
   {
     name: "Mecha",
@@ -21,7 +21,7 @@ const arrayGatos = [
     shortDesc: "Tiene 1 año, le gusta perseguir mariposas, se lleva bien con ninios, gatos y perros.",
     longDesc: "Temporibus quam id inventore laboriosam repudiandae modi blanditiis porro sint ullam, distinctio commodi, accusantium aut! Voluptatem totam, dolor doloribus id distinctio obcaecati inventore velit temporibus architecto quis.",
     color: ["blanco", "negro"],
-    sexo: "F"
+    sexo: "f"
   },
   {
     name: "Silvestre",
@@ -29,7 +29,7 @@ const arrayGatos = [
     shortDesc: "Tiene 2 años, le gusta perseguir mariposas, se lleva bien con ninios, gatos y perros.",
     longDesc: "Temporibus quam id inventore laboriosam repudiandae modi blanditiis porro sint ullam, distinctio commodi, accusantium aut! Voluptatem totam, dolor doloribus id distinctio obcaecati inventore velit temporibus architecto quis.",
     color: ["atigrado"],
-    sexo: "M"
+    sexo: "m"
   },
   {
     name: "Blackie",
@@ -37,7 +37,7 @@ const arrayGatos = [
     shortDesc: "Tiene 2 años, le gusta perseguir mariposas, se lleva bien con ninios, gatos y perros.",
     longDesc: "Temporibus quam id inventore laboriosam repudiandae modi blanditiis porro sint ullam, distinctio commodi, accusantium aut! Voluptatem totam, dolor doloribus id distinctio obcaecati inventore velit temporibus architecto quis.",
     color: ["negro"],
-    sexo: "M"
+    sexo: "m"
   }
 ];
 
@@ -111,7 +111,6 @@ for (let i = 0; i < cardsInvert.length; i++) {
     cardsInvert[i].classList.remove('invertido', 'cardImgInvertido');
   };
 
-
 };
 
 const formularios = document.forms;
@@ -120,18 +119,27 @@ const formColor = formularios[0];
 
 const checkboxColor = document.querySelectorAll("input[type='checkbox']");
 
-const checkboxColorValue = [];
+let checkboxColorValue = [];
 
 let nuevoHTMLFiltro = "";
+
+const radioSexo = document.querySelectorAll("input[type='radio']");
+
+let radioSexoValue = "";
 
 formColor.onsubmit = e => {
 
   e.preventDefault();
 
   for (let i = 0; i < checkboxColor.length; i++) {
-
     if (checkboxColor[i].checked) {
       checkboxColorValue.push(checkboxColor[i].value);
+    };
+  };
+
+  for (let i = 0; i < radioSexo.length; i++) {
+    if (radioSexo[i].checked) {
+      radioSexoValue = radioSexo[i].value;
     };
   };
 
@@ -139,7 +147,26 @@ formColor.onsubmit = e => {
 
     for (let j = 0; j < arrayGatos.length; j++) {
 
-      if (checkboxColorValue[i] === arrayGatos[j][4]) {
+      if (arrayGatos[j].color.includes(checkboxColorValue[i]) &&
+          arrayGatos[j].sexo.includes(radioSexoValue)) {
+
+        nuevoHTMLFiltro = nuevoHTMLFiltro + `
+        <div class="card">
+          <div class="cardImg">
+            <img src=${arrayGatos[j].img}> <alt=${arrayGatos[j].name}>
+          </div>
+          <div class="cardInfo">
+            <div id="cardTitle">
+              <h2>${arrayGatos[j].name.toUpperCase()}</h2>
+            </div>
+            <div id="cardDescription">
+              <p>${arrayGatos[j].shortDesc}</p>
+            </div>
+            <div class="verMas"><button>ver mas</button></div>
+          </div>
+        </div>`
+      } else if (arrayGatos[j].color.includes(checkboxColorValue[i]) &&
+      radioSexoValue === "i") {
 
         nuevoHTMLFiltro = nuevoHTMLFiltro + `
         <div class="card">
