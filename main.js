@@ -4,40 +4,40 @@ const arrayGatos = [
     img: "images/cards1-img.PNG",
     shortDesc: "Tiene 1 año, le gusta perseguir mariposas, se lleva bien con ninios, gatos y perros.",
     longDesc: "Temporibus quam id inventore laboriosam repudiandae modi blanditiis porro sint ullam, distinctio commodi, accusantium aut! Voluptatem totam, dolor doloribus id distinctio obcaecati inventore velit temporibus architecto quis.",
-    color: ["gris"],
-    sexo: "f"
+    color: ["gris", "i"],
+    sexo: ["f", "i"]
   },
   {
     name: "Beto",
     img: "images/cards2-img.png",
     shortDesc: "Tiene 2 años, le gusta perseguir mariposas, se lleva bien con ninios, gatos y perros.",
     longDesc: "Temporibus quam id inventore laboriosam repudiandae modi blanditiis porro sint ullam, distinctio commodi, accusantium aut! Voluptatem totam, dolor doloribus id distinctio obcaecati inventore velit temporibus architecto quis.",
-    color: ["naranja"],
-    sexo: "m"
+    color: ["naranja", "i"],
+    sexo: ["m", "i"]
   },
   {
     name: "Mecha",
     img: "images/cards3-img.png",
     shortDesc: "Tiene 1 año, le gusta perseguir mariposas, se lleva bien con ninios, gatos y perros.",
     longDesc: "Temporibus quam id inventore laboriosam repudiandae modi blanditiis porro sint ullam, distinctio commodi, accusantium aut! Voluptatem totam, dolor doloribus id distinctio obcaecati inventore velit temporibus architecto quis.",
-    color: ["blanco", "negro"],
-    sexo: "f"
+    color: ["blanco", "negro", "i"],
+    sexo: ["f", "i"]
   },
   {
     name: "Silvestre",
     img: "images/cards4-img.png",
     shortDesc: "Tiene 2 años, le gusta perseguir mariposas, se lleva bien con ninios, gatos y perros.",
     longDesc: "Temporibus quam id inventore laboriosam repudiandae modi blanditiis porro sint ullam, distinctio commodi, accusantium aut! Voluptatem totam, dolor doloribus id distinctio obcaecati inventore velit temporibus architecto quis.",
-    color: ["atigrado"],
-    sexo: "m"
+    color: ["atigrado", "i"],
+    sexo: ["m", "i"]
   },
   {
     name: "Blackie",
     img: "images/cards5-img.png",
     shortDesc: "Tiene 2 años, le gusta perseguir mariposas, se lleva bien con ninios, gatos y perros.",
     longDesc: "Temporibus quam id inventore laboriosam repudiandae modi blanditiis porro sint ullam, distinctio commodi, accusantium aut! Voluptatem totam, dolor doloribus id distinctio obcaecati inventore velit temporibus architecto quis.",
-    color: ["negro"],
-    sexo: "m"
+    color: ["negro", "i"],
+    sexo: ["m", "i"]
   }
 ];
 
@@ -121,8 +121,6 @@ const checkboxColor = document.querySelectorAll("input[type='checkbox']");
 
 let checkboxColorValue = [];
 
-let vaciarFiltro = "";
-
 let nuevoHTMLFiltro = "";
 
 const radioSexo = document.querySelectorAll("input[type='radio']");
@@ -130,6 +128,11 @@ const radioSexo = document.querySelectorAll("input[type='radio']");
 let radioSexoValue = "";
 
 formColor.onsubmit = e => {
+
+  checkboxColorValue = []
+
+  cardGatos.innerHTML = '';  
+  nuevoHTMLFiltro = '';
 
   e.preventDefault();
 
@@ -150,35 +153,7 @@ formColor.onsubmit = e => {
     for (let j = 0; j < arrayGatos.length; j++) {
 
       if (arrayGatos[j].color.includes(checkboxColorValue[i]) &&
-          arrayGatos[j].sexo.includes(radioSexoValue)) {
-
-        vaciarFiltro = vaciarFiltro + `
-        <div class="card">
-        </div>
-        `;
-
-        nuevoHTMLFiltro = nuevoHTMLFiltro + `
-        <div class="card">
-          <div class="cardImg">
-            <img src=${arrayGatos[j].img}> <alt=${arrayGatos[j].name}>
-          </div>
-          <div class="cardInfo">
-            <div id="cardTitle">
-              <h2>${arrayGatos[j].name.toUpperCase()}</h2>
-            </div>
-            <div id="cardDescription">
-              <p>${arrayGatos[j].shortDesc}</p>
-            </div>
-            <div class="verMas"><button>ver mas</button></div>
-          </div>
-        </div>`
-      } else if (arrayGatos[j].color.includes(checkboxColorValue[i]) &&
-      radioSexoValue === "i") {
-
-        vaciarFiltro = vaciarFiltro + `
-        <div class="card">
-        </div>
-        `;
+      arrayGatos[j].sexo.includes(radioSexoValue)) {
 
         nuevoHTMLFiltro = nuevoHTMLFiltro + `
         <div class="card">
@@ -197,7 +172,8 @@ formColor.onsubmit = e => {
         </div>`
       };
     };
-    cardGatos.innerHTML = vaciarFiltro;  
+      
     cardGatos.innerHTML = nuevoHTMLFiltro;  
+        
   };
 };
