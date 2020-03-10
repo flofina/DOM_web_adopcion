@@ -45,19 +45,19 @@ const cardGatos = document.querySelector('section');
 
 let nuevoHTML = "";
 
-for (let i = 0; i < arrayGatos.length; i++) {
+for (let j = 0; j < arrayGatos.length; j++) {
 
   nuevoHTML = nuevoHTML + `
     <div class="card">
       <div class="cardImg">
-      <img src=${arrayGatos[i].img}> <alt=${arrayGatos[i].name}>
+      <img src=${arrayGatos[j].img}> <alt=${arrayGatos[j].name}>
         </div>
       <div class="cardInfo">
         <div id="cardTitle">
-          <h2>${arrayGatos[i].name.toUpperCase()}</h2>
+          <h2>${arrayGatos[j].name.toUpperCase()}</h2>
         </div>
         <div id="cardDescription">
-        <p>${arrayGatos[i].shortDesc}</p>
+        <p>${arrayGatos[j].shortDesc}</p>
         </div>
         <div class="verMas"><button>ver mas</button></div>
       </div>
@@ -121,6 +121,8 @@ const checkboxColor = document.querySelectorAll("input[type='checkbox']");
 
 let checkboxColorValue = [];
 
+let vaciarFiltro = "";
+
 let nuevoHTMLFiltro = "";
 
 const radioSexo = document.querySelectorAll("input[type='radio']");
@@ -150,6 +152,11 @@ formColor.onsubmit = e => {
       if (arrayGatos[j].color.includes(checkboxColorValue[i]) &&
           arrayGatos[j].sexo.includes(radioSexoValue)) {
 
+        vaciarFiltro = vaciarFiltro + `
+        <div class="card">
+        </div>
+        `;
+
         nuevoHTMLFiltro = nuevoHTMLFiltro + `
         <div class="card">
           <div class="cardImg">
@@ -168,6 +175,11 @@ formColor.onsubmit = e => {
       } else if (arrayGatos[j].color.includes(checkboxColorValue[i]) &&
       radioSexoValue === "i") {
 
+        vaciarFiltro = vaciarFiltro + `
+        <div class="card">
+        </div>
+        `;
+
         nuevoHTMLFiltro = nuevoHTMLFiltro + `
         <div class="card">
           <div class="cardImg">
@@ -185,6 +197,7 @@ formColor.onsubmit = e => {
         </div>`
       };
     };
+    cardGatos.innerHTML = vaciarFiltro;  
     cardGatos.innerHTML = nuevoHTMLFiltro;  
   };
 };
